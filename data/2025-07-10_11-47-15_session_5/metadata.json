@@ -1,0 +1,12 @@
+{
+  "session_id": 5,
+  "start_time": "2025-07-10 11:47:15",
+  "end_time": "2025-07-10 11:47:16",
+  "duration": 0,
+  "result": "loss",
+  "grid_size": 9,
+  "total_bombs": 10,
+  "total_moves": 3,
+  "total_flags": 0,
+  "bombs_clicked": 1
+}

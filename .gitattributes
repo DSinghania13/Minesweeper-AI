@@ -1,0 +1,19 @@
+# Ensure consistent line endings
+* text=auto eol=lf
+
+# Treat Python files as text
+*.py text diff=python
+
+# Handle JSON consistently
+*.json text
+
+# Binary files (don’t diff)
+*.keras binary
+*.npz binary
+*.wav binary
+*.png binary
+*.gif binary
+*.icns binary
+*.dmg binary
+*.exe binary
+*.zip binary

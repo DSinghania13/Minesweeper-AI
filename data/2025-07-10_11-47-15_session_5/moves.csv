@@ -1,0 +1,4 @@
+session_id,timestamp,action,row,col,is_bomb,is_flagged,adjacent_bombs,snapshot,floodfill,step,was_correct_flag,total_flags_used,valid_move
+5,11:47:15,reveal,8,5,0,0,1,moves_snapshot/move_0001.npy,0,0,0,0,0
+5,11:47:16,bomb,8,4,1,0,0,moves_snapshot/move_0002.npy,0,1,0,0,1
+5,11:47:19,reveal,8,6,0,0,0,moves_snapshot/move_0003.npy,1,2,0,0,0

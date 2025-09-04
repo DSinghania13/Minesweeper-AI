@@ -1,0 +1,52 @@
+[
+  {
+    "file": "hint1.npz",
+    "rule": 2,
+    "tile": [
+      0,
+      5
+    ],
+    "reason": "Remaining unrevealed tiles must be bombs.",
+    "timestamp": "2025-07-10 11:46:24"
+  },
+  {
+    "file": "hint2.npz",
+    "rule": 1,
+    "tile": [
+      5,
+      1
+    ],
+    "reason": "All bombs already flagged. Safe tiles remain.",
+    "timestamp": "2025-07-10 11:46:31"
+  },
+  {
+    "file": "hint3.npz",
+    "rule": 1,
+    "tile": [
+      3,
+      1
+    ],
+    "reason": "All bombs already flagged. Safe tiles remain.",
+    "timestamp": "2025-07-10 11:46:32"
+  },
+  {
+    "file": "hint4.npz",
+    "rule": 1,
+    "tile": [
+      2,
+      2
+    ],
+    "reason": "All bombs already flagged. Safe tiles remain.",
+    "timestamp": "2025-07-10 11:46:35"
+  },
+  {
+    "file": "hint5.npz",
+    "rule": 1,
+    "tile": [
+      8,
+      3
+    ],
+    "reason": "All bombs already flagged. Safe tiles remain.",
+    "timestamp": "2025-07-10 11:46:37"
+  }
+]

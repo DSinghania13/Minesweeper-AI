@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.DS_Store
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# Build artifacts
+build/
+dist/
+*.spec
+
+# IDE/project files
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Installers
+*.dmg
+*.exe
+*.zip
