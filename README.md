@@ -48,6 +48,8 @@ For macOS users, you can directly install the game without running from source.
 👉 [Download Minesweeper-Installer.dmg](https://github.com/DSinghania13/Minesweeper-AI/raw/refs/heads/main/Minesweeper-Installer.dmg?download=)
 1.	Double-click the .dmg file.
 2.	Drag Minesweeper.app into the Applications folder.
+    ![DMG](https://github.com/user-attachments/assets/f010264b-ffec-4686-94fd-1d56a08d086f)
+
 3.	Launch from Applications (you may need to right-click → Open the first time if Gatekeeper blocks it).
 
 ---
@@ -185,21 +187,31 @@ The RL agent was trained over ~15,000 games to learn a winning strategy.
 
 The agent's learning is demonstrated by the cumulative win rate, which starts volatile and stabilizes as the agent gains experience. This shows a clear, positive learning trend.
 
+![win_rate](https://github.com/user-attachments/assets/3d2ac88a-f989-4d13-b1fc-4d6a94035db8)
+
 **Final Win Rate**
 
 After training, the agent achieves a stable win rate of 30.4%, a strong performance for a game with high uncertainty.
+
+![final_win_rate](https://github.com/user-attachments/assets/7420ced6-6265-43c7-a854-0e2864a1bec2)
 
 **Behavioral Analysis**
 
 Analysis of lost games shows that the AI is most vulnerable in the early stages, with 66.5% of losses occurring within the first 10 moves. This suggests that the agent's primary weakness is navigating the sparse information available at the beginning of a game.
 
+![early_loss](https://github.com/user-attachments/assets/cb5acadd-9065-45f7-8823-b769b23356de)
+
 **2. CNN Model Performance (Mine Prediction)**
 
 The CNN acts as a fallback to predict mine probabilities when no logically safe move exists. Its performance is measured on a highly imbalanced dataset (many more safe cells than mines).
 
+![roc](https://github.com/user-attachments/assets/b6219166-3664-4fc4-a0ab-54e9bc9ea9a5)
+
 **Classification Report & Confusion Matrix**
 
 The model achieves 99% accuracy, but this is misleading due to the class imbalance. The key metrics are precision and recall for the "Mine" class.
+
+![confusion_matrix](https://github.com/user-attachments/assets/ca0500cc-d22a-4139-aba8-3c4206193c1c)
 
 ```bash
 --- Classification Report ---
@@ -217,6 +229,8 @@ This shows the model is risk-averse: it avoids guessing "Mine" unless it is very
 **Precision-Recall Curve**
 
 This curve is the most honest view of the model's performance on an imbalanced dataset. It shows that to achieve higher precision (certainty), the model must sacrifice recall (finding all mines). This trade-off is central to its risk-averse strategy.
+
+![precision](https://github.com/user-attachments/assets/9250edc2-478f-49fb-94a1-2fe213031c9f)
 
 ---
 
