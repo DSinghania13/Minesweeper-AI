@@ -21,8 +21,3 @@ dist/
 
 # Logs
 *.log
-
-# Installers
-*.dmg
-*.exe
-*.zip
