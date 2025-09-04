@@ -244,3 +244,10 @@ This curve is the most honest view of the model's performance on an imbalanced d
 > _Minesweeper is easy to play, but hard to master. With AI, it becomes a whole new challenge._
 
 ---
+
+## 📝 License
+
+This project is licensed under the [MIT License](LICENSE).  
+You are free to use, modify, and distribute this software with proper attribution.
+
+---
