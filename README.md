@@ -14,11 +14,18 @@ It combines classic **gameplay** with modern AI agents (CNN & RL) trained on tho
 
 Players can switch between Manual Mode 🎮 and AI Mode 🤖 with smooth UI, sounds, and animations.
 
+#### Main Window
+![Main](https://github.com/user-attachments/assets/3a151381-eb3d-4a9f-ac6a-4dea9e8a6550)
+
+
 #### Manual Gameplay
-![Manual](#)  
+![Manual](https://github.com/user-attachments/assets/32be7d7c-bff1-4b4a-b0fd-15a74ee6b1a6)
+
+
 
 #### AI Gameplay
-![AI](#)
+![AI](https://github.com/user-attachments/assets/2c3e7883-7550-4b5e-988e-505864e457a0)
+
 
 ---
 
@@ -38,7 +45,7 @@ Players can switch between Manual Mode 🎮 and AI Mode 🤖 with smooth UI, sou
 
 For macOS users, you can directly install the game without running from source.
 
-👉 [Download Minesweeper-Installer.dmg](./Minesweeper-Installer.dmg)
+👉 [Download Minesweeper-Installer.dmg]([./Minesweeper-Installer.dmg](https://github.com/DSinghania13/Minesweeper-AI/raw/refs/heads/main/Minesweeper-Installer.dmg?download=))
 1.	Double-click the .dmg file.
 2.	Drag Minesweeper.app into the Applications folder.
 3.	Launch from Applications (you may need to right-click → Open the first time if Gatekeeper blocks it).
@@ -113,8 +120,8 @@ Minesweeper/
 ## 📊 Kaggle Notebooks
 
 Our full training process (CNN, RL, Hint reasoning) is documented in Kaggle notebooks.
-- 📘 CNN Model Training (Author: Divit Singhania) []
-- 📙 RL Agent Training (Author: Divit Singhania) []
+- 📘 [CNN Model Training (Author: Divit Singhania)](https://www.kaggle.com/code/divitsinghania/minesweeper-cnn)
+- 📙 [RL Agent Training (Author: Divit Singhania)](https://www.kaggle.com/code/divitsinghania/minesweeper-rl)
 
 Sample data (.json and .npz) is included in this repo.
 Full datasets are available via Kaggle links above.
