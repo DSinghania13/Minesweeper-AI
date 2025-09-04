@@ -125,7 +125,7 @@ Our full training process (CNN, RL, Hint reasoning) is documented in Kaggle note
 - 📘 [CNN Model Training (Author: Divit Singhania)](https://www.kaggle.com/code/divitsinghania/minesweeper-cnn)
 - 📙 [RL Agent Training (Author: Divit Singhania)](https://www.kaggle.com/code/divitsinghania/minesweeper-rl)
 
-Sample data (.json and .npz) is included in this repo.
+Sample data (.npz) is included in this repo.
 Full datasets are available via Kaggle links above.
 
 ---
