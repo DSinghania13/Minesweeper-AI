@@ -114,6 +114,8 @@ Minesweeper/
 │
 ├── Minesweeper-Installer.dmg
 ├── requirements.txt
+├── .gitattributes
+├── .gitignore
 └── README.md
 ```
 
