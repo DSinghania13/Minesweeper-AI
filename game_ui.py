@@ -12,7 +12,7 @@ from PyQt6.QtWidgets import (
 from PyQt6.QtCore import QTimer, Qt, QPropertyAnimation, QEasingCurve
 from PyQt6.QtGui import QMovie, QAction, QColor, QShortcut, QKeySequence
 from core import soundManager
-from core.ScoreManager import ScoreManager
+from core.scoreManager import ScoreManager
 from core.hint_manager import HintManager
 from core.soundManager import SoundManager
 # from devtools.devtools import DevTools
