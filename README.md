@@ -56,11 +56,17 @@ Players can switch between Manual Mode 🎮 and AI Mode 🤖 with smooth UI, sou
 For macOS users, you can directly install the game without running from source.
 
 👉 Download [`Minesweeper-Installer.dmg`](https://github.com/DSinghania13/Minesweeper-AI/raw/refs/heads/main/Minesweeper-Installer.dmg?download=)
+
+### How to Run (macOS)
+
 1.	Double-click the .dmg file.
 2.	Drag Minesweeper.app into the Applications folder.
+
     ![DMG](https://github.com/user-attachments/assets/f010264b-ffec-4686-94fd-1d56a08d086f)
 
-3. Launch the app from the Applications folder. (You may need to allow it from **Privacy & Security** in System Settings the first time if macOS Gatekeeper blocks it.)
+3. Launch the app from the Applications folder.
+
+> ℹ️ If macOS Gatekeeper blocks the app on first launch, go to **System Settings → Privacy & Security** and allow it manually.
 
 ---
 
