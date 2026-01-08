@@ -60,7 +60,7 @@ For macOS users, you can directly install the game without running from source.
 2.	Drag Minesweeper.app into the Applications folder.
     ![DMG](https://github.com/user-attachments/assets/f010264b-ffec-4686-94fd-1d56a08d086f)
 
-3.	Launch from Applications (you may need to give access from Privacy and Security (in Settings) when opening the first time if Gatekeeper blocks it).
+3. Launch the app from the Applications folder. (You may need to allow it from **Privacy & Security** in System Settings the first time if macOS Gatekeeper blocks it.)
 
 ---
 
@@ -73,23 +73,36 @@ For Windows users, Minesweeper AI is distributed as a **portable executable pack
 ### How to Run (Windows)
 
 1. Download `MinesweeperAI_Windows.zip`
-2. Extract the ZIP file
-3. Open the extracted folder
-4. Double-click `MinesweeperAI.exe`
+2. Extract the ZIP file.
+
+![ZIP Extraction](path/to/windows_zip_extraction.png)
+
+3. After extraction, open the newly created folder.
+
+![Extracted Folder](path/to/windows_extracted_folder.png)
+
+4. Double-click `MinesweeperAI.exe` to launch the game.
 
 ✅ No installation required  
 ✅ No administrator permissions needed  
 ✅ Works offline  
 
-### Important Notes (Windows)
+---
 
-- The folder contains:
-  - `MinesweeperAI.exe`
-  - `_internal/` (required libraries, AI models, sounds, assets)
-- **Do not delete or move the `_internal` folder**
-- To uninstall the game, simply **delete the extracted folder**
+### 📂 Folder Structure (Windows)
 
-> This portable setup is the Windows equivalent of a macOS DMG drag-and-drop app.
+The extracted folder will look like this:
+
+![Windows Folder Structure](path/to/windows_folder_structure.png)
+
+- `MinesweeperAI.exe` → Main application  
+- `_internal/` → Required libraries, AI models, sounds, and assets  
+
+⚠️ **Do not delete or move the `_internal` folder**, as the application depends on it.
+
+To uninstall the game, simply **delete the extracted folder**.
+
+> This portable setup is the **Windows equivalent of a macOS DMG drag-and-drop app**.
 
 ---
 
