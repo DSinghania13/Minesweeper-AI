@@ -12,7 +12,7 @@ It combines classic **gameplay** with modern AI agents (CNN & RL) trained on tho
 
 ### 🖼️ Gameplay Preview
 
-Players can switch between Manual Mode 🎮 and AI Mode 🤖 with smooth UI, sounds, and animations.
+Players can switch between Manual Mode 🎮 and AI Mode 🤖, featuring smooth UI, sounds, and animations.
 
 #### Main Window
 ![Main](https://github.com/user-attachments/assets/3a151381-eb3d-4a9f-ac6a-4dea9e8a6550)
@@ -37,7 +37,7 @@ Players can switch between Manual Mode 🎮 and AI Mode 🤖 with smooth UI, sou
 - **🔔 Sound Effects & Animations** – Interactive experience with explosions, flags, and victory sounds
 - **📊 Score System** – Separate high scores for Manual & AI play
 - **📂 Sample Datasets** – Included JSON/NPZ files to showcase AI training
-- **💻 Cross-Platform** – Works on macOS (DMG installer available) & Windows (EXE planned)
+- **💻 Cross-Platform** – Works on macOS (DMG installer available) & Windows (Portable EXE available)
 
 ---
 
@@ -55,7 +55,7 @@ Players can switch between Manual Mode 🎮 and AI Mode 🤖 with smooth UI, sou
 
 For macOS users, you can directly install the game without running from source.
 
-👉 Download [`Minesweeper-Installer.dmg`](https://github.com/DSinghania13/Minesweeper-AI/raw/refs/heads/main/Minesweeper-Installer.dmg?download=)
+👉 Download [`Minesweeper-macOS-Installer.dmg`](https://github.com/DSinghania13/Minesweeper-AI/raw/refs/heads/main/Minesweeper-macOS-Installer.dmg?download=)
 
 ### How to Run (macOS)
 
@@ -74,7 +74,7 @@ For macOS users, you can directly install the game without running from source.
 
 For Windows users, Minesweeper AI is distributed as a **portable executable package**.
 
-👉 Download: [`MinesweeperAI_Windows.zip`](https://github.com/DSinghania13/Minesweeper-AI/raw/refs/heads/main/Minesweeper-Windows-Installer.zip?download=)
+👉 Download: [`Minesweeper-Windows-Installer.zip`](https://github.com/DSinghania13/Minesweeper-AI/raw/refs/heads/main/Minesweeper-Windows-Installer.zip?download=)
 
 ### How to Run (Windows)
 
@@ -206,7 +206,11 @@ cd Minesweeper-AI
 
 ```bash
 python -m venv .venv
+
+# macOS / Linux
 source .venv/bin/activate
+
+# Windows
 .venv\Scripts\activate
 ```
 
