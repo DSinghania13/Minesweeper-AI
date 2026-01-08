@@ -41,16 +41,55 @@ Players can switch between Manual Mode 🎮 and AI Mode 🤖 with smooth UI, sou
 
 ---
 
+## 📦 Distribution Summary
+
+| Platform | Format | Python Required |
+|--------|-------|----------------|
+| macOS | `.dmg` | ❌ No |
+| Windows | `.zip` (Portable EXE) | ❌ No |
+| Source | GitHub | ✅ Yes (3.10+) |
+
+---
+
 ## macOS DMG Installer
 
 For macOS users, you can directly install the game without running from source.
 
-👉 [Download Minesweeper-Installer.dmg](https://github.com/DSinghania13/Minesweeper-AI/raw/refs/heads/main/Minesweeper-Installer.dmg?download=)
+👉 Download [`Minesweeper-Installer.dmg`](https://github.com/DSinghania13/Minesweeper-AI/raw/refs/heads/main/Minesweeper-Installer.dmg?download=)
 1.	Double-click the .dmg file.
 2.	Drag Minesweeper.app into the Applications folder.
     ![DMG](https://github.com/user-attachments/assets/f010264b-ffec-4686-94fd-1d56a08d086f)
 
 3.	Launch from Applications (you may need to give access from Privacy and Security (in Settings) when opening the first time if Gatekeeper blocks it).
+
+---
+
+## 🪟 Windows Portable EXE (No Installer Required)
+
+For Windows users, Minesweeper AI is distributed as a **portable executable package**.
+
+👉 Download: [`MinesweeperAI_Windows.zip`](https://github.com/DSinghania13/Minesweeper-AI/raw/refs/heads/main/Minesweeper-Windows-Installer.zip?download=)
+
+### How to Run (Windows)
+
+1. Download `MinesweeperAI_Windows.zip`
+2. Extract the ZIP file
+3. Open the extracted folder
+4. Double-click `MinesweeperAI.exe`
+
+✅ No installation required  
+✅ No administrator permissions needed  
+✅ Works offline  
+
+### Important Notes (Windows)
+
+- The folder contains:
+  - `MinesweeperAI.exe`
+  - `_internal/` (required libraries, AI models, sounds, assets)
+- **Do not delete or move the `_internal` folder**
+- To uninstall the game, simply **delete the extracted folder**
+
+> This portable setup is the Windows equivalent of a macOS DMG drag-and-drop app.
 
 ---
 
@@ -134,6 +173,9 @@ Full datasets are available via Kaggle links above.
 
 ## 🧑‍💻 Installation & Setup
 
+> If you only want to play the game, prefer the **Windows EXE** or **macOS DMG**.
+> Running from source is intended for development, research, or training the AI models.
+
 ### 1. Clone the Repository
 
 ```bash
@@ -170,10 +212,20 @@ python main.py
 
 ## ⚙️ Requirements
 
-- Python 3.10+ (Developed in python 3.13)
+### Running from Source
+- **Python 3.10+**
 - PyQt6
 - numpy
-- tensorflow (optional – only required for AI gameplay mode)
+- tensorflow (required for AI mode)
+
+> Note:
+> - Development was done on macOS using Python 3.13
+> - **Windows builds require Python 3.10 for stability**
+>   (TensorFlow, PyInstaller, and PyQt6 are most stable on Windows with Python 3.10)
+
+### Running Prebuilt Apps
+- **Windows EXE** → No Python required
+- **macOS DMG** → No Python required
 
 ---
 
@@ -238,9 +290,10 @@ This curve is the most honest view of the model's performance on an imbalanced d
 
 ## 🎯 Future Work
 
-- 🪟 Windows EXE build (currently TensorFlow DLL issue under investigation)
-- 🎓 More advanced AI with transformer-based reasoning
+- 🎓 Transformer-based reasoning for complex board states
 - 🌍 Online leaderboard & multiplayer mode
+- 📦 Optional Windows installer (Inno Setup) for Start Menu integration
+- 🧠 Improved AI-human interaction with explainable move reasoning
 
 
 > _Minesweeper is easy to play, but hard to master. With AI, it becomes a whole new challenge._
