@@ -78,7 +78,7 @@ For Windows users, Minesweeper AI is distributed as a **portable executable pack
 
 ### How to Run (Windows)
 
-1. Download `MinesweeperAI_Windows.zip`
+1. Download `Minesweeper-Windows-Installer.zip`
 2. Extract the ZIP file.
 
 ![ZIP Extraction](https://github.com/user-attachments/assets/32597420-8689-487e-96e5-a228bb5c30b1)
