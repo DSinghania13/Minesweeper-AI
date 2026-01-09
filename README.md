@@ -81,11 +81,13 @@ For Windows users, Minesweeper AI is distributed as a **portable executable pack
 1. Download `MinesweeperAI_Windows.zip`
 2. Extract the ZIP file.
 
-![ZIP Extraction](path/to/windows_zip_extraction.png)
+![ZIP Extraction](https://github.com/user-attachments/assets/32597420-8689-487e-96e5-a228bb5c30b1)
+
 
 3. After extraction, open the newly created folder.
 
-![Extracted Folder](path/to/windows_extracted_folder.png)
+![Extracted Folder](https://github.com/user-attachments/assets/dee45bc5-84ca-45b0-93ee-965620cdeb80)
+
 
 4. Double-click `MinesweeperAI.exe` to launch the game.
 
@@ -99,7 +101,7 @@ For Windows users, Minesweeper AI is distributed as a **portable executable pack
 
 The extracted folder will look like this:
 
-![Windows Folder Structure](path/to/windows_folder_structure.png)
+![Windows Folder Structure](https://github.com/user-attachments/assets/ac2c0772-9082-4920-9e98-f00d7aa337aa)
 
 - `MinesweeperAI.exe` → Main application  
 - `_internal/` → Required libraries, AI models, sounds, and assets  
