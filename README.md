@@ -55,7 +55,7 @@ Players can switch between Manual Mode 🎮 and AI Mode 🤖, featuring smooth U
 
 For macOS users, you can directly install the game without running from source.
 
-👉 Download [`Minesweeper-macOS-Installer.dmg`](https://github.com/DSinghania13/Minesweeper-AI/raw/refs/heads/main/Minesweeper-macOS-Installer.dmg?download=)
+👉 Download [`Minesweeper-macOS-Installer.dmg`](https://github.com/DSinghania13/Minesweeper-AI/raw/refs/heads/main/Installers/Minesweeper-macOS-Installer.dmg?download=)
 
 ### How to Run (macOS)
 
@@ -74,7 +74,7 @@ For macOS users, you can directly install the game without running from source.
 
 For Windows users, Minesweeper AI is distributed as a **portable executable package**.
 
-👉 Download: [`Minesweeper-Windows-Installer.zip`](https://github.com/DSinghania13/Minesweeper-AI/raw/refs/heads/main/Minesweeper-Windows-Installer.zip?download=)
+👉 Download: [`Minesweeper-Windows-Installer.zip`](https://github.com/DSinghania13/Minesweeper-AI/raw/refs/heads/main/Installers/Minesweeper-Windows-Installer.zip?download=)
 
 ### How to Run (Windows)
 
