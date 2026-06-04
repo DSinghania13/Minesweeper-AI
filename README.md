@@ -64,7 +64,7 @@ For macOS users, you can directly install the game without running from source.
 
     ![DMG](https://github.com/user-attachments/assets/ba0d8000-a74c-40e6-982c-6d4699cd4765)
 
-4. Launch the app from the Applications folder.
+3. Launch the app from the Applications folder.
 
 > ℹ️ If macOS Gatekeeper blocks the app on first launch, go to **System Settings → Privacy & Security** and allow it manually.
 
@@ -254,36 +254,51 @@ python main.py
 
 ---
 
-## 📊 Performance
+## 📊 Neuro-Symbolic AI Performance
 
-The performance of the AI is evaluated in two parts: the overall Reinforcement Learning (RL) agent's ability to win the game, and the underlying CNN's effectiveness at predicting mine locations.
+The performance of the AI is evaluated in two parts: the overall **Neuro-Symbolic Agent's** ability to win the game, and the underlying **CNN's** effectiveness at predicting mine locations during forced blind guesses.
 
-**1. Reinforcement Learning (RL) Agent Performance**
+### 1. Neuro-Symbolic Agent Performance
 
-The RL agent was trained over ~15,000 games to learn a winning strategy.
+The current AI utilizes a Neuro-Symbolic Architecture, cascading through Rule-Based Logic, CSP Math, and Deep RL to make decisions.
 
-**Learning Progress**
+**Overall Game Outcomes & Win Rate**
+Across a 1000-game test batch, the AI achieved a highly robust 69.3% Win Rate. Because Minesweeper frequently generates board states that force 50/50 blind guesses, a 100% win rate is mathematically impossible. A 69.3% success rate demonstrates a highly optimized decision engine.
 
-The agent's learning is demonstrated by the cumulative win rate, which starts volatile and stabilizes as the agent gains experience. This shows a clear, positive learning trend.
+![Overall Game Outcomes](assets/win_loss_pie_chart.png)
 
-![win_rate](https://github.com/user-attachments/assets/3d2ac88a-f989-4d13-b1fc-4d6a94035db8)
+The cumulative win rate stabilizes perfectly around 70% as the agent plays more games. The 50-game moving average highlights this sustained performance without volatile dips.
 
-**Final Win Rate**
+![Cumulative Win Rate](assets/win_rate_plot.png)
+![Moving Win Rate](assets/moving_win_rate_plot.png)
 
-After training, the agent achieves a stable win rate of 30.4%, a strong performance for a game with high uncertainty.
+**AI Workload Breakdown**
+The architecture is highly computationally efficient. 87.4% of all moves are handled entirely by the fast, lightweight Rule-Based Logic engine. The more resource-intensive CNN and CSP matrix solvers are only triggered on complex frontiers or blind guessing scenarios.
 
-![final_win_rate](https://github.com/user-attachments/assets/7420ced6-6265-43c7-a854-0e2864a1bec2)
+![Workload Breakdown](assets/ai_workload_pie.png)
 
-**Behavioral Analysis**
+**Guessing Behavior**
+When the AI is forced into a corner and *must* take a risk, it delegates the guess almost equally between exact CSP Mathematical probabilities and the CNN's global spatial intuition.
 
-Analysis of lost games shows that the AI is most vulnerable in the early stages, with 66.5% of losses occurring within the first 10 moves. This suggests that the agent's primary weakness is navigating the sparse information available at the beginning of a game.
+![Guessing Behavior](assets/guessing_behavior_bar.png)
 
-![early_loss](https://github.com/user-attachments/assets/cb5acadd-9065-45f7-8823-b769b23356de)
+**Behavioral & Loss Analysis**
+Analysis of lost games proves that the AI's logic engine is virtually flawless in the mid-to-late game. 87.0% of all losses occur within the first 10 moves. 
 
-**2. CNN Model Performance (Mine Prediction)**
+![Loss Breakdown](assets/loss_breakdown_pie_chart.png)
+
+Zooming in on those early game losses, the absolute highest spike in deaths occurs exactly on Moves 2 and Move 3. The AI predominantly dies to unavoidable early-game RNG before enough clues are revealed to form a logic frontier.
+
+![Early Losses Distribution](assets/early_losses_distribution.png)
+
+---
+
+### 2. CNN Model Performance (Mine Prediction)
 
 The CNN acts as a fallback to predict mine probabilities when no logically safe move exists. Its performance is measured on a highly imbalanced dataset (many more safe cells than mines).
 
+**ROC Curve**
+The model demonstrates strong predictive capability, separating safe tiles from mines effectively across different threshold values.
 ![roc](https://github.com/user-attachments/assets/b6219166-3664-4fc4-a0ab-54e9bc9ea9a5)
 
 **Classification Report & Confusion Matrix**
