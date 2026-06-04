@@ -1,6 +1,4 @@
 import sys, random
-import os
-import platform
 from PyQt6.QtWidgets import (
     QApplication, QMainWindow, QPushButton, QLabel,
     QVBoxLayout, QWidget, QGridLayout, QGraphicsBlurEffect, QGraphicsDropShadowEffect, QMenuBar, QHBoxLayout,
@@ -8,12 +6,16 @@ from PyQt6.QtWidgets import (
 )
 from PyQt6.QtGui import QFont, QColor, QAction, QKeySequence
 from PyQt6.QtCore import Qt, QEvent
+
 from core.settingsManager import SettingsManager
 from core.soundManager import SoundManager
+
 from game_manual import ManualGameWindow
 from game_ai import AIGameWindow
-from game_ui import MinesweeperUI
+import os
+import platform
 
+from game_ui import MinesweeperUI
 
 if platform.system() == 'Darwin':
     os.environ['QT_MEDIA_BACKEND'] = 'darwin'
@@ -385,7 +387,6 @@ class HomePage(QMainWindow):
             self.settings_manager.set('grid_color', '#FF8C00')
         else:
             self.settings_manager.set('grid_color', '#0F82F2')
-
 
         new_color = self.settings_manager.get('grid_color')
         self._apply_grid_color(new_color)

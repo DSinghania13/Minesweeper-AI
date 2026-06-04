@@ -1,4 +1,5 @@
 import sys
+
 import json
 import os
 import time
@@ -11,12 +12,14 @@ from PyQt6.QtWidgets import (
 )
 from PyQt6.QtCore import QTimer, Qt, QPropertyAnimation, QEasingCurve
 from PyQt6.QtGui import QMovie, QAction, QColor, QShortcut, QKeySequence
+from pynotifier.backends.platform.darwin import sounds
+
 from core import soundManager
-from core.scoreManager import ScoreManager
+from core.ScoreManager import ScoreManager
+# Local module imports (updated paths)
 from core.hint_manager import HintManager
 from core.soundManager import SoundManager
-# from devtools.devtools import DevTools
-
+from devtools.devtools import DevTools
 
 REVEAL_DELAY = 40
 
@@ -26,6 +29,7 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 ASSET_DIR = os.path.join("assets")
 
 def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
     try:
         base_path = sys._MEIPASS
     except Exception:
@@ -33,6 +37,9 @@ def resource_path(relative_path):
     return os.path.join(base_path, relative_path)
 
 
+# ─────────────────────────────────────────────────────
+# Tile Class: Represents a single tile on the game board
+# ─────────────────────────────────────────────────────
 class Tile:
     def __init__(self, row, col, button, parent):
         self.row = row
@@ -97,10 +104,14 @@ class Tile:
         self.parent.hint_manager.cancel_hint_animation(self)
 
 
+# ────────────────────────
+# Main UI class for the Minesweeper game
+# ────────────────────────
 class MinesweeperUI(QWidget):
     def __init__(self, mode="manual", main_window=None, sound_manager=None):
         super().__init__()
         self.main_window = main_window
+
         if sound_manager:
             self.sounds = sound_manager
         else:
@@ -156,8 +167,7 @@ class MinesweeperUI(QWidget):
         self.timer.timeout.connect(self.update_timer)
 
         self.hint_manager = HintManager(self, self.sounds)
-        # Only for developers not for public use
-        # self.devtools = DevTools()
+        self.devtools = DevTools()
         self.score_manager = ScoreManager(mode=self.mode)
 
         self.init_ui()
@@ -376,10 +386,12 @@ class MinesweeperUI(QWidget):
         self.game_over_label = self.make_overlay("💥 Game Over")
         self.win_label = self.make_overlay("🎉 You Win!")
 
-        # Only for developers not for public use
+        # ── Menu Bar with Dev Mode toggle ──
+        """Uncomment the following to get the dev mode in menu"""
         # menu_bar = QMenuBar(self)
         # dev_menu = QMenu("Developer", self)
         #
+        # # Toggle for dev/debug mode
         # self.dev_action = QAction("Toggle Dev Mode", self)
         # self.dev_action.setCheckable(True)
         # self.dev_action.setChecked(False)
@@ -399,7 +411,7 @@ class MinesweeperUI(QWidget):
     def load_settings(self):
         with open(resource_path("json/settings.json"), "r") as f:
             settings = json.load(f)
-        self.grid_color = settings.get("grid_color", "#1e90ff")
+        self.grid_color = settings.get("grid_color", "#1e90ff")  # default green
 
     def build_grid(self):
         self.load_settings()
@@ -445,11 +457,10 @@ class MinesweeperUI(QWidget):
         label.hide()
         return label
 
-    # Only for developers not for public use
-    # def toggle_dev_mode(self):
-    #     self.devtools.toggle(self)
-    #     self.devtools.update_visuals(self)
-    #     self.dev_action.setChecked(self.devtools.active)
+    def toggle_dev_mode(self):
+        self.devtools.toggle(self)
+        self.devtools.update_visuals(self)
+        self.dev_action.setChecked(self.devtools.active)
 
     def cancel_hint_animation(self, tile):
         if hasattr(tile.button, "_fade_anim"):
@@ -492,7 +503,9 @@ class MinesweeperUI(QWidget):
             self.main_window.show()
         super().closeEvent(event)
 
-
+    # ─────────────────────────────
+    # Gameplay Functions
+    # ─────────────────────────────
     def handle_mouse_event(self, event, row, col):
         if not self.game_active:
             return
@@ -505,10 +518,9 @@ class MinesweeperUI(QWidget):
     def handle_tile_click(self, row, col, is_flagging=False):
         tile = self.buttons[row][col]
 
-        # Only for developers not for public use
-        # if self.devtools.active:
-        #     action = "bomb" if tile.is_bomb else "reveal"
-        #     self.devtools.log_move(row, col, tile, action)
+        if self.devtools.active:
+            action = "bomb" if tile.is_bomb else "reveal"
+            self.devtools.log_move(row, col, tile, action)
 
         if tile.is_flagged:
             self.sounds.play("error")
@@ -522,27 +534,24 @@ class MinesweeperUI(QWidget):
             self.place_bombs(row, col)
             self.first_click_done = True
 
-            # Only for developers not for public use
-            # if self.devtools.active:
-            #     now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            #     print(f"\n🆕 New Game Started at {now} (Dev Mode)\n{DELIMITER}")
-            #     self.devtools.start_new_session()
-            #     self.devtools.save_metadata("loss")
-            #     self.devtools.print_board_snapshot(self.buttons)
-            #     self.devtools.export_numpy_snapshot("initial_board", self.buttons)
+            if self.devtools.active:
+                now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                print(f"\n🆕 New Game Started at {now} (Dev Mode)\n{DELIMITER}")
+                self.devtools.start_new_session()
+                self.devtools.save_metadata("loss")
+                self.devtools.print_board_snapshot(self.buttons)
+                self.devtools.export_numpy_snapshot("initial_board", self.buttons)
 
-        # Only for developers not for public use
-        # if self.devtools.active:
-        #     self.devtools.print_tile_info(row, col, tile, origin=True)
+        if self.devtools.active:
+            self.devtools.print_tile_info(row, col, tile, origin=True)
 
         if tile.is_bomb:
             self.sounds.play("bomb")
             self.timer.stop()
             self.reset_button.setText("😵")
             self.game_active = False
-            # Only for developers not for public use
-            # if self.devtools.active:
-            #     self.devtools.increment_bomb_click()
+            if self.devtools.active:
+                self.devtools.increment_bomb_click()
 
             btn = tile.button
 
@@ -571,16 +580,14 @@ class MinesweeperUI(QWidget):
                 self.flame_label.show()
                 self.flame_movie.start()
 
-                # Only for developers not for public use
-                # if self.devtools.active:
-                #     self.devtools.export_numpy_snapshot("bomb_clicked_state", self.buttons)
+                if self.devtools.active:
+                    self.devtools.export_numpy_snapshot("bomb_clicked_state", self.buttons)
                 self.reveal_all_bombs(exclude=(row, col), clicked_tile=(row, col))
                 self.show_game_over()
-                # Only for developers not for public use
-                # if self.devtools.active:
-                #     self.devtools.update_result("loss")
-                #     self.devtools.save_metadata("loss")
-                #     self.devtools.export_numpy_snapshot("solution_board", self.buttons, reveal_all=True)
+                if self.devtools.active:
+                    self.devtools.update_result("loss")
+                    self.devtools.save_metadata("loss")
+                    self.devtools.export_numpy_snapshot("solution_board", self.buttons, reveal_all=True)
 
             QTimer.singleShot(600, after_explosion)
 
@@ -589,9 +596,8 @@ class MinesweeperUI(QWidget):
         else:
             tile.reveal()
 
-        # Only for developers not for public use
-        # if self.devtools.active:
-        #     self.devtools.increment_move()
+        if self.devtools.active:
+            self.devtools.increment_move()
 
         self.check_win()
 
@@ -611,10 +617,10 @@ class MinesweeperUI(QWidget):
 
         self.flag_label.setText(f"🚩 {self.num_flags}")
 
-        # Only for developers not for public use
-        # if self.devtools.active:
-        #     self.devtools.log_move(row, col, tile, action="flag")
-        #     self.devtools.update_flag_count(10 - self.num_flags)
+
+        if self.devtools.active:
+            self.devtools.log_move(row, col, tile, action="flag")
+            self.devtools.update_flag_count(10 - self.num_flags)
 
     def flood_reveal(self, row, col):
         stack = [(row, col)]
@@ -691,12 +697,11 @@ class MinesweeperUI(QWidget):
         self.group_pop_animations.extend([shrink, fade_anim])
 
     def reveal_all_bombs(self, exclude=None, clicked_tile=None):
-        # Only for developers not for public use
-        # if self.devtools.active and clicked_tile:
-        #     r, c = clicked_tile
-        #     print(f"\nBomb Clicked at [{r},{c}] - Board Before Reveal")
-        #     self.devtools.print_board_snapshot(self.buttons, reveal_all=False)
-        #     print(DELIMITER)
+        if self.devtools.active and clicked_tile:
+            r, c = clicked_tile
+            print(f"\nBomb Clicked at [{r},{c}] - Board Before Reveal")
+            self.devtools.print_board_snapshot(self.buttons, reveal_all=False)
+            print(DELIMITER)
 
         self.hint_button.setEnabled(False)
         self.hint_button.setStyleSheet(self.hint_manager.disabled_hint_style)
@@ -714,22 +719,20 @@ class MinesweeperUI(QWidget):
         self.show_overlay(self.game_over_label)
         self.sounds.play("lose")
 
-        # Only for developers not for public use
-        # if self.devtools.active:
-        #     print("GAME OVER FINAL SOLUTION:")
-        #     self.devtools.print_full_solution(self.buttons)
+        if self.devtools.active:
+            print("GAME OVER FINAL SOLUTION:")
+            self.devtools.print_full_solution(self.buttons)
 
     def show_win_overlay(self):
         self.show_overlay(self.win_label)
         self.sounds.play("win")
-        # Only for developers not for public use
-        # if self.devtools.active:
-        #     self.devtools.update_result("win")
+        if self.devtools.active:
+            self.devtools.update_result("win")
 
-        # if self.devtools.active:
-        #     print("🎉 WIN FINAL SOLUTION:")
-        #     self.devtools.export_numpy_snapshot("final_win_state", self.buttons)
-        #     self.devtools.print_full_solution(self.buttons)
+        if self.devtools.active:
+            print("🎉 WIN FINAL SOLUTION:")
+            self.devtools.export_numpy_snapshot("final_win_state", self.buttons)
+            self.devtools.print_full_solution(self.buttons)
 
     def show_overlay(self, label):
         label.move(
@@ -770,9 +773,8 @@ class MinesweeperUI(QWidget):
         self.hint_button.setEnabled(False)
         self.hint_button.setStyleSheet(self.hint_manager.disabled_hint_style)
         self.show_win_overlay()
-        # Only for developers not for public use
-        # if self.devtools.active:
-        #     self.devtools.export_numpy_snapshot("solution_board", self.buttons, reveal_all=True)
+        if self.devtools.active:
+            self.devtools.export_numpy_snapshot("solution_board", self.buttons, reveal_all=True)
 
 
     def start_timer(self):
@@ -800,9 +802,8 @@ class MinesweeperUI(QWidget):
                 if not self.buttons[r][c].is_bomb:
                     self.buttons[r][c].adjacent_bombs = self.count_adjacent_bombs(r, c)
 
-        # Only for developers not for public use
-        # if self.devtools.active:
-        #     self.devtools.update_visuals(self)
+        if self.devtools.active:
+            self.devtools.update_visuals(self)
 
     def count_adjacent_bombs(self, row, col):
         return sum(
@@ -846,6 +847,5 @@ class MinesweeperUI(QWidget):
 
         self.hint_manager.reset()
 
-        # Only for developers not for public use
-        # if self.devtools.active:
-        #     self.devtools.update_visuals(self)
+        if self.devtools.active:
+            self.devtools.update_visuals(self)

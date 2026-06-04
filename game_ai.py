@@ -1,6 +1,7 @@
 import numpy as np
 from PyQt6.QtCore import QTimer, Qt
 from PyQt6.QtGui import QAction, QKeySequence
+
 from ai.ai_agent import AIAgent
 from game_ui import MinesweeperUI
 import random
@@ -34,7 +35,6 @@ class AIGameWindow(MinesweeperUI):
             self.main_window.show()
         self.close()
 
-
     def start_ai_loop(self):
         if not self.game_active:
             return
@@ -43,7 +43,7 @@ class AIGameWindow(MinesweeperUI):
         board_tensor = self.convert_to_tensor(board_state)
         print("DEBUG: Calling ai_agent.predict_move...")
 
-        row, col, action_type = self.ai_agent.predict_move(board_tensor)
+        row, col, action_type, move_source = self.ai_agent.predict_move(board_tensor)
         print(f"DEBUG: ai_agent.predict_move returned: row={row}, col={col}, action={action_type}")
 
         current_move = (row, col, action_type)

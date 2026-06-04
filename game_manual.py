@@ -9,8 +9,8 @@ class ManualGameWindow(MinesweeperUI):
         self.setWindowTitle("Minesweeper - Manual Mode")
         self._setup_shortcuts()
 
-
     def _setup_shortcuts(self):
+        """Creates a robust QAction for closing the window."""
         close_action = QAction("Close", self)
         close_action.setShortcuts([QKeySequence("Ctrl+W"), QKeySequence("Meta+W")])
         close_action.setShortcutContext(Qt.ShortcutContext.WindowShortcut)
@@ -18,6 +18,7 @@ class ManualGameWindow(MinesweeperUI):
         self.addAction(close_action)
 
     def handle_close(self):
+        """Handle window close via shortcut."""
         print("Handling close via shortcut")
         if hasattr(self, "sounds") and self.sounds:
             self.sounds.stop_all()
