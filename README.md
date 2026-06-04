@@ -62,9 +62,9 @@ For macOS users, you can directly install the game without running from source.
 1.	Double-click the .dmg file.
 2.	Drag Minesweeper.app into the Applications folder.
 
-    ![DMG](https://github.com/user-attachments/assets/f010264b-ffec-4686-94fd-1d56a08d086f)
+    ![DMG](https://github.com/user-attachments/assets/ba0d8000-a74c-40e6-982c-6d4699cd4765)
 
-3. Launch the app from the Applications folder.
+4. Launch the app from the Applications folder.
 
 > ℹ️ If macOS Gatekeeper blocks the app on first launch, go to **System Settings → Privacy & Security** and allow it manually.
 
