@@ -263,6 +263,7 @@ The performance of the AI is evaluated in two parts: the overall **Neuro-Symboli
 The current AI utilizes a Neuro-Symbolic Architecture, cascading through Rule-Based Logic, CSP Math, and Deep RL to make decisions.
 
 **Overall Game Outcomes & Win Rate**
+
 Across a 1000-game test batch, the AI achieved a highly robust 69.3% Win Rate. Because Minesweeper frequently generates board states that force 50/50 blind guesses, a 100% win rate is mathematically impossible. A 69.3% success rate demonstrates a highly optimized decision engine.
 
 ![Overall Game Outcomes](assets/win_loss_pie_chart.png)
@@ -273,16 +274,19 @@ The cumulative win rate stabilizes perfectly around 70% as the agent plays more 
 ![Moving Win Rate](assets/moving_win_rate_plot.png)
 
 **AI Workload Breakdown**
+
 The architecture is highly computationally efficient. 87.4% of all moves are handled entirely by the fast, lightweight Rule-Based Logic engine. The more resource-intensive CNN and CSP matrix solvers are only triggered on complex frontiers or blind guessing scenarios.
 
 ![Workload Breakdown](assets/ai_workload_pie.png)
 
 **Guessing Behavior**
+
 When the AI is forced into a corner and *must* take a risk, it delegates the guess almost equally between exact CSP Mathematical probabilities and the CNN's global spatial intuition.
 
 ![Guessing Behavior](assets/guessing_behavior_bar.png)
 
 **Behavioral & Loss Analysis**
+
 Analysis of lost games proves that the AI's logic engine is virtually flawless in the mid-to-late game. 87.0% of all losses occur within the first 10 moves. 
 
 ![Loss Breakdown](assets/loss_breakdown_pie_chart.png)
@@ -298,6 +302,7 @@ Zooming in on those early game losses, the absolute highest spike in deaths occu
 The CNN acts as a fallback to predict mine probabilities when no logically safe move exists. Its performance is measured on a highly imbalanced dataset (many more safe cells than mines).
 
 **ROC Curve**
+
 The model demonstrates strong predictive capability, separating safe tiles from mines effectively across different threshold values.
 ![roc](https://github.com/user-attachments/assets/b6219166-3664-4fc4-a0ab-54e9bc9ea9a5)
 
