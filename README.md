@@ -19,7 +19,7 @@ Players can switch between Manual Mode 🎮 and AI Mode 🤖, featuring smooth U
 
 
 #### Manual Gameplay
-https://github.com/user-attachments/assets/6c172bc6-c2ef-4ae5-a3a5-32dad7ae8414
+https://github.com/user-attachments/assets/af35252d-d624-46ae-ab70-afabfb71086a
 
 
 #### AI Gameplay
