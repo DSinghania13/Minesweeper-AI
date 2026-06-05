@@ -19,12 +19,11 @@ Players can switch between Manual Mode 🎮 and AI Mode 🤖, featuring smooth U
 
 
 #### Manual Gameplay
-![Manual](https://github.com/user-attachments/assets/32be7d7c-bff1-4b4a-b0fd-15a74ee6b1a6)
-
+https://github.com/user-attachments/assets/8e8721a1-8c5e-4698-822d-7c26de8c9a5a
 
 
 #### AI Gameplay
-![AI](https://github.com/user-attachments/assets/2c3e7883-7550-4b5e-988e-505864e457a0)
+https://github.com/user-attachments/assets/4f6c6b48-43e5-4ebe-b548-13a671c7d5b1
 
 
 ---
@@ -231,6 +230,8 @@ python main.py
 
 - Manual Mode → Play Minesweeper yourself
 - AI Mode → Watch the AI solve in real-time
+
+> 💡 **Note on AI Mode:** The AI agent is designed to play a single game session to completion (win or loss) and then stop so you can analyze its performance metrics. To watch it play again, simply click the **smiley/reset emoji** at the top of the window to spin up a fresh board!
 
 ---
 
