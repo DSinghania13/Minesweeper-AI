@@ -55,7 +55,7 @@ Players can switch between Manual Mode 🎮 and AI Mode 🤖, featuring smooth U
 
 For macOS users, you can directly install the game without running from source.
 
-👉 Download [`Minesweeper-macOS-Installer.dmg`](https://github.com/DSinghania13/Minesweeper-AI/raw/refs/heads/main/Installers/Minesweeper-macOS-Installer.dmg?download=)
+👉 Download [`Minesweeper-v2.0-macOS-Installer.dmg`](https://github.com/DSinghania13/Minesweeper-AI/releases/download/v2.0.0/Minesweeper-v2.0-macOS-Installer.dmg)
 
 ### How to Run (macOS)
 
@@ -74,11 +74,11 @@ For macOS users, you can directly install the game without running from source.
 
 For Windows users, Minesweeper AI is distributed as a **portable executable package**.
 
-👉 Download: [`Minesweeper-Windows-Installer.zip`](https://github.com/DSinghania13/Minesweeper-AI/raw/refs/heads/main/Installers/Minesweeper-Windows-Installer.zip?download=)
+👉 Download: [`Minesweeper-v2.0-Windows-Installer.zip`](https://github.com/DSinghania13/Minesweeper-AI/releases/download/v2.0.0/Minesweeper-v2.0-Windows-Installer.zip)
 
 ### How to Run (Windows)
 
-1. Download `Minesweeper-Windows-Installer.zip`
+1. Download `Minesweeper-v2.0-Windows-Installer.zip`
 2. Extract the ZIP file.
 
 ![ZIP Extraction](https://github.com/user-attachments/assets/32597420-8689-487e-96e5-a228bb5c30b1)
@@ -172,7 +172,6 @@ Minesweeper/
 │   ├── highscore_manual.json
 │   └── highscore_ai.json
 │
-├── Minesweeper-Installer.dmg
 ├── requirements.txt
 ├── .gitattributes
 ├── .gitignore
@@ -266,34 +265,36 @@ The current AI utilizes a Neuro-Symbolic Architecture, cascading through Rule-Ba
 
 Across a 1000-game test batch, the AI achieved a highly robust 69.3% Win Rate. Because Minesweeper frequently generates board states that force 50/50 blind guesses, a 100% win rate is mathematically impossible. A 69.3% success rate demonstrates a highly optimized decision engine.
 
-![Overall Game Outcomes](assets/win_loss_pie_chart.png)
+![Overall Game Outcomes](https://github.com/user-attachments/assets/71fb422e-5119-46e1-89fd-ccbf5a3a564e)
+
 
 The cumulative win rate stabilizes perfectly around 70% as the agent plays more games. The 50-game moving average highlights this sustained performance without volatile dips.
 
-![Cumulative Win Rate](assets/win_rate_plot.png)
-![Moving Win Rate](assets/moving_win_rate_plot.png)
+![Cumulative Win Rate](https://github.com/user-attachments/assets/dac7df13-65ff-4d56-8e6d-4fb5dd43319b)
+
+![Moving Win Rate](https://github.com/user-attachments/assets/11e7a807-a290-4b01-9db8-a282593e6be3)
 
 **AI Workload Breakdown**
 
 The architecture is highly computationally efficient. 87.4% of all moves are handled entirely by the fast, lightweight Rule-Based Logic engine. The more resource-intensive CNN and CSP matrix solvers are only triggered on complex frontiers or blind guessing scenarios.
 
-![Workload Breakdown](assets/ai_workload_pie.png)
+![Workload Breakdown](https://github.com/user-attachments/assets/28e66573-6294-4660-bc28-412cbd97e8fe)
 
 **Guessing Behavior**
 
 When the AI is forced into a corner and *must* take a risk, it delegates the guess almost equally between exact CSP Mathematical probabilities and the CNN's global spatial intuition.
 
-![Guessing Behavior](assets/guessing_behavior_bar.png)
+![Guessing Behavior](https://github.com/user-attachments/assets/e4c347c5-8f14-412b-935d-06e1a93f1817)
 
 **Behavioral & Loss Analysis**
 
 Analysis of lost games proves that the AI's logic engine is virtually flawless in the mid-to-late game. 87.0% of all losses occur within the first 10 moves. 
 
-![Loss Breakdown](assets/loss_breakdown_pie_chart.png)
+![Loss Breakdown](https://github.com/user-attachments/assets/4ac554e4-bf06-40ce-8276-59ba539c331c)
 
 Zooming in on those early game losses, the absolute highest spike in deaths occurs exactly on Moves 2 and Move 3. The AI predominantly dies to unavoidable early-game RNG before enough clues are revealed to form a logic frontier.
 
-![Early Losses Distribution](assets/early_losses_distribution.png)
+![Early Losses Distribution](https://github.com/user-attachments/assets/79808b26-86ee-4f30-a78b-2de2cb79763b)
 
 ---
 
