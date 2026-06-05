@@ -20,5 +20,6 @@ dist/
 .idea/
 
 # Logs
-*.log*.dmg
+*.log
+*.dmg
 *.zip
