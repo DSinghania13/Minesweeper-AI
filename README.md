@@ -273,7 +273,6 @@ The cumulative win rate stabilizes perfectly around 70% as the agent plays more 
 
 ![Cumulative Win Rate](https://github.com/user-attachments/assets/dac7df13-65ff-4d56-8e6d-4fb5dd43319b)
 
-![Moving Win Rate](https://github.com/user-attachments/assets/11e7a807-a290-4b01-9db8-a282593e6be3)
 >**Why this matters:**
 >Unlike standard reinforcement learning charts that show an upward learning curve, this moving average remains rock-solid around 70% from game 1 to game 1000. Because the AI is already fully trained, this flat trend is actually the ideal result: it proves that the system's logic is highly stable and doesn't suffer from volatile performance degradation, maintaining peak efficiency over extended play sessions regardless of board RNG.
 
